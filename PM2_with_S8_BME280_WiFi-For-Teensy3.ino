@@ -141,7 +141,7 @@ void loop()
   //    testvalue=Serial1.read();
   if (Serial3.available() > 0) {
     testvalue = Serial3.read();
-    if (testvalue == 66 && !(cnt == 0)) {
+    if (testvalue == 0x42 && !(cnt == 0)) {
       cnt = 0;
     }
     //    if (testvalue == 66 && cnt)
@@ -150,7 +150,7 @@ void loop()
 //            Serial.print(testvalue, HEX);
 //            Serial.print(" ");
     receiveDat[cnt] = testvalue;   //receive 1 of 24 bytes from air detector module
-    if(receiveDat[1] != 66 && receiveDat[2] != 77){
+    if(receiveDat[1] != 0x42 && receiveDat[2] != 0x42d){
       cnt = 0;
     }
     if (cnt == 24)
