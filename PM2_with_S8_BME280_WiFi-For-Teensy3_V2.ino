@@ -7,9 +7,11 @@
 #include "PMS.h"
 PMS pms(Serial3);
 PMS::DATA data;
+
 //////////////////////////////
 // CO2 code
 /////////////////////////////
+
 SoftwareSerial K_30_Serial(0,1);  //Sets up a virtual serial port
                                     //Using pin 12 for Rx and pin 13 for Tx
 byte readCO2[] = {0xFE, 0X44, 0X00, 0X08, 0X02, 0X9F, 0X25};  //Command packet to read Co2 (see app note)
@@ -26,6 +28,7 @@ BME280 capteur;
 ///////////////////////////////////
 // Wi-Fi
 //////////////////////////////////
+
 String apiKey = "YOPB6WIQNXLDDH0K";     // replace with your channel's thingspeak WRITE API key
 
 //String ssid="WIFI NAME";    // Wifi network SSID
@@ -47,7 +50,7 @@ void showResponse(int waitTime){
 }
 
 //========================================================================
-boolean thingSpeakWrite(float value1, float value2, float value3, float value4, float value7, float value8){
+boolean thingSpeakWrite(float value1, float value2, float value3, float value4, float value7, float value8, float value6){
   String cmd = "AT+CIPSTART=\"TCP\",\"";                  // TCP connection
   cmd += "184.106.153.149";                               // api.thingspeak.com
   cmd += "\",80";
@@ -72,6 +75,8 @@ boolean thingSpeakWrite(float value1, float value2, float value3, float value4, 
   getStr += String(value4);
   //getStr +="&field5=";
   //getStr += String(value5);
+  getStr +="&field6=";
+  getStr += String(value6);
   getStr +="&field7=";
   getStr += String(value7);
   getStr +="&field8=";
@@ -169,9 +174,10 @@ void loop()
    // float o = Value_O2; // value 5
    float d = data.PM_AE_UG_2_5; // value 7
    float e = data.PM_AE_UG_10_0; // value 8
+   float f = data.PM_AE_UG_1_0; // value 6
    //float h = dht.readHumidity();
    
-   thingSpeakWrite(t,h,c,p,d,e);
+   thingSpeakWrite(t,h,c,p,d,e,f);
 
  
 ////////////////////////////////////////////////
@@ -197,6 +203,7 @@ void loop()
 ///////////////////////////////
 // CO2 sensor //////
 ///////////////////////////////
+
 void sendRequest(byte packet[])
 {
   while(!K_30_Serial.available())  //keep sending request until we start to get a response
@@ -234,4 +241,3 @@ unsigned long getValue(byte packet[])
     unsigned long val = high*256 + low;                //Combine high byte and low byte with this formula to get value
     return val* valMultiplier;
 }
-
