@@ -29,7 +29,7 @@ BME280 capteur;
 // Wi-Fi
 //////////////////////////////////
 
-String apiKey = "YOPB6WIQNXLDDH0K";     // replace with your channel's thingspeak WRITE API key
+String apiKey = "***";     // replace with your channel's thingspeak WRITE API key
 
 //String ssid="WIFI NAME";    // Wifi network SSID
 //String password ="WIFI PASSWORD";  // Wifi network password
