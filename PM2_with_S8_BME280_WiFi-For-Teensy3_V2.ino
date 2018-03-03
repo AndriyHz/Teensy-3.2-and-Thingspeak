@@ -4,7 +4,7 @@
 ////////////////////////////////
 // Plantower
 ///////////////////////////////
-#include "PMS.h"  /* https:// */
+#include "PMS.h"  /* http://downloads.arduino.cc/libraries/github.com/fu-hsi/PMS_Library-1.0.0.zip */
 PMS pms(Serial3);
 PMS::DATA data;
 
