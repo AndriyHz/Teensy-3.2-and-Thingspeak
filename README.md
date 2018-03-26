@@ -15,3 +15,6 @@ Command/Command (RUS) http://wikihandbk.com/wiki/ESP8266:AT-%D0%BA%D0%BE%D0%BC%D
 
 # Teensy_Thingspeak_esp8266_СO2_O2_Temp_Hum_Press
 TeensyThingspeak.ino
+
+# Teensy_Thingspeak_esp8266_СO2_Temp_Hum_Press_PM2.5_PM10
+PM2_with_S8_BME280_WiFi-For-Teensy3_V2.ino
