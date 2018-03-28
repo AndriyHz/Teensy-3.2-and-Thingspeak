@@ -10,7 +10,6 @@
  */
 
 // Code to use SoftwareSerial
-#include <SoftwareSerial.h>
 #include "SoftwareSerial.h"
 #include "SparkFunBME280.h"
 SoftwareSerial espSerial =  SoftwareSerial(0,1);      // arduino RX pin=2  arduino TX pin=3    connect the arduino RX pin to esp8266 module TX pin   -  connect the arduino TX pin to esp8266 module RX pin
@@ -37,7 +36,7 @@ byte response[] = {0,0,0,0,0,0,0};  //create an array to store the response
 int valMultiplier = 1;
 
 
-String apiKey = "YOPB6WIQNXLDDH0K";     // replace with your channel's thingspeak WRITE API key
+String apiKey = "****";     // replace with your channel's thingspeak WRITE API key
 
 //String ssid="WIFI NAME";    // Wifi network SSID
 //String password ="WIFI PASSWORD";  // Wifi network password
