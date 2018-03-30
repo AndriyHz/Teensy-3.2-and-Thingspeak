@@ -171,7 +171,6 @@ void loop()
    float h = capteur.readFloatHumidity(); // value 2
    float p = (capteur.readFloatPressure()*0.0075); // value 3
    float c = valCO2; // value 4
-   // float o = Value_O2; // value 5
    float d = data.PM_AE_UG_2_5; // value 7
    float e = data.PM_AE_UG_10_0; // value 8
    float f = data.PM_AE_UG_1_0; // value 6
