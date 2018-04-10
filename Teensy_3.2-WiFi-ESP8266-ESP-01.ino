@@ -22,11 +22,11 @@ void setup() {
 
 void loop() {
 
-    // Send bytes from ESP8266 -> Teensy to Computer
-    if ( Serial1.available() ) {
+    // Send bytes from ESP8266 -> Teensy to Computer 
+    if ( Serial1.available() ) {   // or Serial2,  Serial3
          digitalWriteFast(14, HIGH);   // set the LED on
          LED_14_TimeOn = millis();
-        Serial.write( Serial1.read() );
+        Serial.write( Serial1.read() ); // or Serial2,  Serial3
     }
 
     // Send bytes from Computer -> Teensy back to ESP8266
